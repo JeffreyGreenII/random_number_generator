@@ -1,19 +1,15 @@
 <html>
     <body>
         <h1>Random Number Generator</h1>
-        <button onclick="countClick()">Plus 1!</button>
-        <p>You've clicked the button <span id="button_clicks">0</span> times!</p>
+        <button onclick="getRandomNumber()">Randomize!</button>
+        <p>Your random number is: <span id="random_number">0</span></p>
         <script>
-            function countClick() {
-                // Get the HTML of the element with the ID "button_clicks"
-                // For documentation on getElementById, see https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
-                var current_html = document.getElementById("button_clicks").innerHTML;
-                // For documentation on parseInt, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
-                var current_count = parseInt(current_html);
-                // Calculate new count
-                var new_count = current_count + 1;
-                // Update the element with the ID "button_clicks" with the new count
-                document.getElementById("button_clicks").innerHTML = new_count;
+            function getRandomNumber() {
+                // Calculate new number
+                // For documentation on Math.random(), see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+                var random_number = Math.random();
+                // Update the element with the ID "random_number" with the new count
+                document.getElementById("random_number").innerHTML = random_number;
             }
         </script>
     </body>
