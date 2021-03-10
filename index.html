@@ -1,13 +1,27 @@
 <html>
     <body>
         <h1>Random Number Generator</h1>
-        <button onclick="getRandomNumber()">Randomize!</button>
+        <form onsubmit="return updateRandomNumber(event)">
+            <label for="lower_bound">Lower Bound:</label>
+            <input type="text" id="lower_bound" name="lower_bound"><br><br>
+            <label for="upper_bound">Upper Bound:</label>
+            <input type="text" id="upper_bound" name="upper_bound"><br><br>
+            <input type="submit" value="Randomize!">
+        </form>
         <p>Your random number is: <span id="random_number">0</span></p>
         <script>
-            function getRandomNumber() {
-                // Calculate new number
+            function updateRandomNumber(e) {
+                // Prevent page from reloading
+                e.preventDefault();
+                // Get lower bound
+                var lowerBound = parseInt(document.getElementById("lower_bound").value);
+                // Get upper bound
+                var upperBound = parseInt(document.getElementById("upper_bound").value);
+                // Get random number range
+                var randomNumberRange = upperBound - lowerBound;
+                // Calculate random number
                 // For documentation on Math.random(), see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-                var random_number = Math.random();
+                var random_number = lowerBound + (Math.random() * randomNumberRange);
                 // Update the element with the ID "random_number" with the new count
                 document.getElementById("random_number").innerHTML = random_number;
             }
